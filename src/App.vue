@@ -10,7 +10,7 @@
 
     <div class="second-row">
       <gtx770 />
-      <gtx750 />
+      <gtx750  />
       <rtx3090 />
       <rtx3060 />
       <gtx970 />
@@ -46,7 +46,7 @@
       rtx3060,
       gtx970,
 
-    }
+    },
   }
 </script>
 
