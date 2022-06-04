@@ -49,8 +49,14 @@
           Its price at launch was 599 US Dollars.
         </p>
 
-  Type a number: <input v-model.number="number" />
-<p>{{ tweened.number.toFixed(0) }}</p>
+        
+        <button>
+          Test
+        </button>
+
+          {{ tweened.number.toFixed(0) }}
+          
+
       </div>
       <div class="card-image750gtx">
         <img src="./750.png" alt="" />
@@ -60,23 +66,45 @@
 
 </template>
 <script>
+import { ref, reactive, defineProps, onMounted } from 'vue'
 import gsap from 'gsap'
+
 export default {
   props: {
-    show: Boolean,
+    show: Boolean, 
   },
-    data:() => {
-    return {
-      number: 0,
-      tweened: 0
-    }
-  },
-  watch: {
-    number(n) {
-      gsap.to(this.$data, { duration: 0.5, tweened: Number(n) || 0 })
-    }
+
+  setup(props) {
+    const number = ref(0)
+    const tweened = reactive({
+      number: 0
+    })
+    let show = ref(props.show)
+
+
+    gsap.to(tweened, { duration: 0.5, number: Number(550) || 0 })
+    
+
+    onMounted(()=> {
+      console.log(props.show);
+
+    })
+
+    
+
+
+  return {
+   number,
+   tweened
   }
-};
+}
+
+}
+    
+
+
+
+
 </script>
 
 <style>
